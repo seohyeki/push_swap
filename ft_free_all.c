@@ -6,31 +6,11 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 19:35:25 by seohyeki          #+#    #+#             */
-/*   Updated: 2023/12/18 19:40:36 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/02 14:41:40 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_free_all(char **arr, t_list *stack)
-{
-	int		i;
-	t_list	*tmp;
-
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-	while (stack)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
-	}
-}
 
 void	ft_free_arr(char **arr)
 {
@@ -45,14 +25,15 @@ void	ft_free_arr(char **arr)
 	free(arr);
 }
 
-void	ft_free_stack(t_list *stack)
+void	ft_free_stack(t_stack *stack)
 {
 	t_list	*tmp;
 
-	while (stack)
+	while (stack->top_a)
 	{
-		tmp = stack;
-		stack = stack->next;
+		tmp = stack->top_a;
+		stack->top_a = stack->top_a->next;
 		free(tmp);
 	}
+	free(stack->arr);
 }

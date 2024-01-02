@@ -6,7 +6,7 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:11:35 by seohyeki          #+#    #+#             */
-/*   Updated: 2023/12/22 20:21:49 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/02 16:28:55 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,74 @@ void	fill_stack(char **argv, t_stack *stack_a)
 	}
 }
 
+void	make_stack_arr(t_stack *stack)
+{
+	int	i;
+	t_list *curr;
+
+	stack->arr = (int *)malloc(sizeof(int) * stack->size_a);
+	if (stack->arr == NULL)
+		exit(1);
+	i = 0;
+	curr = stack->top_a;
+	while (i < stack->size_a)
+	{
+		stack->arr[i] = curr->value;
+		curr = curr->next;
+		i++;
+	}
+}
 #include <stdio.h>
+
+void print(t_stack *stack)
+{
+	//배열
+	printf("==================================\n");
+	printf("arr: ");
+	int j = 0;
+	while (stack->arr[j])
+	{
+		printf("%d ", stack->arr[j]);
+		j++;
+	}
+	printf("\n");
+	//stack a
+	printf("==================================\n");
+	printf("[stack A]\n");
+	t_list *tmp = stack->top_a;
+	while (tmp)
+	{
+		printf("%d -> ", tmp->value);
+		tmp = tmp->next;
+	}
+	printf("NULL\n");
+	printf("stack_a size: %d\n", stack->size_a);
+	if (stack->top_a)
+	{
+		printf("stack_a top: %d\n", (stack->top_a)->value);
+		printf("stack_a bottom: %d\n", (stack->bottom_a)->value);
+	}
+	printf("==================================\n");
+	//stack b
+	if (stack->top_b != NULL)
+	{
+		printf("[stack B]\n");
+		t_list *tmp2 = stack->top_b;
+		while (tmp2)
+		{
+			printf("%d -> ", tmp2->value);
+			tmp2 = tmp2->next;
+		}
+		printf("NULL\n");
+		printf("stack_b size: %d\n", stack->size_b);
+		if (stack->top_b)
+		{
+			printf("stack_b top: %d\n", (stack->top_b)->value);
+			printf("stack_b bottom: %d\n", (stack->bottom_b)->value);
+		}
+		printf("==================================\n");
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -79,60 +146,17 @@ int	main(int argc, char **argv)
 		stack.bottom_b = NULL;
 		stack.size_b = 0;
 		fill_stack(argv, &stack);
-		if (stack.top_a == NULL || sort_check(stack.top_a) == 1)
+		if (stack.top_a == NULL || sort_check(stack.top_a) == 1) //malloc 실패, 정렬 됨
 		{
-			ft_free_stack(stack.top_a);
+			ft_free_stack(&stack);
 			return (0);
 		}
-		
-		/*command 확인*/
-		// sa(&stack);
-		// sb(&stack);
-		// ss(&stack);
-		// pb(&stack);
-		// pa(&stack);
-		
-		// ra(&stack);
-		// rb(&stack);
-		// rr(&stack);
-		// rra(&stack);
-		// rrb(&stack);
-		// rrr(&stack);
+		make_stack_arr(&stack);
+		sorting(&stack);
 
-		
-		//잘 들어가나 보려고!
-		printf("[stack A]\n");
-		int i = 0;
-		t_list *tmp = stack.top_a;
-		while (tmp)
-		{
-			printf("%d: %d\n", i, tmp->value);
-			i++;
-			tmp = tmp->next;
-		}
-		printf("stack_a size: %d\n", stack.size_a);
-		if (stack.top_a)
-		{
-			printf("stack_a top: %d\n", (stack.top_a)->value);
-			printf("stack_a bottom: %d\n", (stack.bottom_a)->value);
-		}
-		printf("==================================\n");
-		printf("[stack B]\n");
-		int j = 0;
-		t_list *tmp2 = stack.top_b;
-		while (tmp2)
-		{
-			printf("%d: %d\n", j, tmp2->value);
-			j++;
-			tmp2 = tmp2->next;
-		}
-		printf("stack_b size: %d\n", stack.size_b);
-		if (stack.top_b)
-		{
-			printf("stack_b top: %d\n", (stack.top_b)->value);
-			printf("stack_b bottom: %d\n", (stack.bottom_b)->value);
-		}
+		print(&stack);
 	}
+	ft_free_stack(&stack);
 	//system("leaks a.out");
 	return (0);
 }

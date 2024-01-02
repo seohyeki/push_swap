@@ -6,7 +6,7 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:47:55 by seohyeki          #+#    #+#             */
-/*   Updated: 2023/12/19 16:13:30 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/02 16:13:31 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static t_list	*ft_lstnew(int value)
 		return (NULL);
 	new_lst->value = value;
 	new_lst->next = 0;
+	new_lst->score = 0;
 	return (new_lst);
 }
 

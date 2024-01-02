@@ -6,7 +6,7 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 15:52:58 by seohyeki          #+#    #+#             */
-/*   Updated: 2023/12/22 20:18:02 by seohyeki         ###   ########.fr       */
+/*   Updated: 2023/12/26 18:04:17 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	pa(t_stack *stack)
 		}
 		(stack->size_b)--;
 		(stack->size_a)++;
+		write(1, "pa\n", 3);
 	}
 }
 
@@ -61,5 +62,6 @@ void	pb(t_stack *stack)
 		}
 		(stack->size_a)--;			
 		(stack->size_b)++;
+		write(1, "pb\n", 3);
 	}
 }
