@@ -6,7 +6,7 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:04:24 by seohyeki          #+#    #+#             */
-/*   Updated: 2023/12/22 16:23:53 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/02 16:13:22 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@
 typedef struct s_list
 {
 	int				value;
+	int				score;
 	struct s_list	*next;
 }	t_list;
 
 typedef struct s_stack
 {
+	int				*arr;
 	int				size_a;
 	struct s_list	*top_a;
 	struct s_list	*bottom_a;
@@ -41,9 +43,8 @@ void		ft_lstadd_back(t_list **lst, int value);
 int			ft_lstsize(t_list *lst);
 
 /*free*/
-void		ft_free_all(char **arr, t_list *stack);
 void		ft_free_arr(char **arr);
-void		ft_free_stack(t_list *stack);
+void		ft_free_stack(t_stack *stack);
 
 /*command*/
 void		sa(t_stack *stack);
@@ -57,5 +58,12 @@ void		rr(t_stack *stack);
 void		rra(t_stack *stack);
 void		rrb(t_stack *stack);
 void		rrr(t_stack *stack);
+
+int			sort_check(t_list *stack);
+int			find_mid_value(t_stack *stack);
+void		three_elements(t_stack *stack);
+void		five_elements(t_stack *stack);
+void		sort_elements(t_stack *stack);
+void		sorting(t_stack *stack);
 
 #endif
