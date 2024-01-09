@@ -6,7 +6,7 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:04:24 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/02 16:13:22 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:52:36 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ typedef struct s_stack
 	struct s_list	*bottom_b;
 }	t_stack;
 
-/*libft*/
+/*utils*/
 int			ft_strlen(const char *s);
 long long	ft_atoi(const char *str);
 char		**ft_split(char const *s, char c);
+t_list		*ft_lstlast_prev(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);
 void		ft_lstadd_back(t_list **lst, int value);
 int			ft_lstsize(t_list *lst);
@@ -59,11 +60,14 @@ void		rra(t_stack *stack);
 void		rrb(t_stack *stack);
 void		rrr(t_stack *stack);
 
+/*sort*/
 int			sort_check(t_list *stack);
-int			find_mid_value(t_stack *stack);
+void		quick_sort(int *arr, int start, int end);
 void		three_elements(t_stack *stack);
 void		five_elements(t_stack *stack);
-void		sort_elements(t_stack *stack);
+void		greedy(t_stack *stack);
 void		sorting(t_stack *stack);
+
+void print(t_stack *stack);
 
 #endif
