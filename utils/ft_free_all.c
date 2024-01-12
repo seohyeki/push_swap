@@ -6,11 +6,11 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 19:35:25 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/02 14:41:40 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:00:49 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ft_free_arr(char **arr)
 {

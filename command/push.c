@@ -6,16 +6,16 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 15:52:58 by seohyeki          #+#    #+#             */
-/*   Updated: 2023/12/26 18:04:17 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:10:59 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	pa(t_stack *stack)
 {
-	t_list *tmp;
-	
+	t_list	*tmp;
+
 	if (stack->top_b != NULL)
 	{
 		tmp = stack->top_b;
@@ -41,8 +41,8 @@ void	pa(t_stack *stack)
 
 void	pb(t_stack *stack)
 {
-	t_list *tmp;
-	
+	t_list	*tmp;
+
 	if (stack->top_a != NULL)
 	{
 		tmp = stack->top_a;
@@ -58,9 +58,9 @@ void	pb(t_stack *stack)
 		{
 			stack->top_a = tmp->next;
 			tmp->next = stack->top_b;
-			stack->top_b = tmp;	
+			stack->top_b = tmp;
 		}
-		(stack->size_a)--;			
+		(stack->size_a)--;
 		(stack->size_b)++;
 		write(1, "pb\n", 3);
 	}

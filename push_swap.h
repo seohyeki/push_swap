@@ -6,7 +6,7 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:04:24 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/09 20:52:36 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:07:51 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_stack
 	int				size_a;
 	struct s_list	*top_a;
 	struct s_list	*bottom_a;
-	int 			size_b;
+	int				size_b;
 	struct s_list	*top_b;
 	struct s_list	*bottom_b;
 }	t_stack;
@@ -65,9 +65,9 @@ int			sort_check(t_list *stack);
 void		quick_sort(int *arr, int start, int end);
 void		three_elements(t_stack *stack);
 void		five_elements(t_stack *stack);
+void		find_best(t_stack *stack, int *min_score_a, int *min_score_b);
+void		push_best(t_stack *stack, int *index_a, int *index_b);
 void		greedy(t_stack *stack);
 void		sorting(t_stack *stack);
-
-void print(t_stack *stack);
 
 #endif

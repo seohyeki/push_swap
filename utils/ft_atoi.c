@@ -6,7 +6,7 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 21:34:13 by seohyeki          #+#    #+#             */
-/*   Updated: 2023/12/22 15:16:26 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:13:13 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ long long	ft_atoi(const char *str)
 			sign *= -1;
 		str++;
 	}
-	if (!ft_isdigit(*str)) //+나 -만 들어왔을때
+	if (!ft_isdigit(*str))
 		return (2147483648);
 	while (*str)
 	{
-		if (!ft_isdigit(*str)) //숫자 아님
-				return (2147483648);
+		if (!ft_isdigit(*str))
+			return (2147483648);
 		num = num * 10 + *str - '0';
 		str++;
 	}
 	num = num * sign;
-	if ((num > 2147483647 || num < -2147483648)) //int범위 아님
+	if ((num > 2147483647 || num < -2147483648))
 		return (2147483648);
 	else
 		return (num);

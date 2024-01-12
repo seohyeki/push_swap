@@ -6,14 +6,14 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 20:46:32 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/09 20:47:24 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/12 15:09:02 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 static void	swap(int *a, int *b)
 {
-	int tmp;
-	
+	int	tmp;
+
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
@@ -21,12 +21,12 @@ static void	swap(int *a, int *b)
 
 void	quick_sort(int *arr, int start, int end)
 {
-	int left;
+	int	left;
 	int	right;
-	int key;
+	int	key;
 
 	if (start >= end)
-		return;
+		return ;
 	left = start + 1;
 	right = end;
 	key = start;
@@ -43,5 +43,4 @@ void	quick_sort(int *arr, int start, int end)
 	}
 	quick_sort(arr, start, right - 1);
 	quick_sort(arr, right + 1, end);
-	
 }

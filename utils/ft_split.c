@@ -6,11 +6,11 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 16:22:55 by seohyeki          #+#    #+#             */
-/*   Updated: 2023/12/18 19:41:17 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/09 16:01:18 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	ft_count_word(char const *str, char sep)
 {
