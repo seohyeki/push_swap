@@ -6,7 +6,7 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 17:06:58 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/12 15:09:52 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/15 19:00:17 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,25 @@ void	chage_value_to_index(t_stack *stack)
 
 void	three_elements(t_stack *stack)
 {
-	if (sort_check(stack->top_a))
+	if (ft_sort_check(stack->top_a))
 		return ;
 	if (stack->top_a->value > stack->top_a->next->value)
 	{
 		if (stack->top_a->value < stack->bottom_a->value)
-			sa(stack);
+			sa(stack, 1);
 		else if (stack->top_a->next->value < stack->bottom_a->value)
-			ra(stack);
+			ra(stack, 1);
 		else
 		{
-			sa(stack);
-			rra(stack);
+			sa(stack, 1);
+			rra(stack, 1);
 		}
 	}
 	else
 	{
-		rra(stack);
+		rra(stack, 1);
 		if (stack->top_a->value > stack->top_a->next->value)
-			sa(stack);
+			sa(stack, 1);
 	}
 }
 
@@ -67,25 +67,25 @@ void	five_elements(t_stack *stack)
 	while (stack->size_a > 3)
 	{
 		if (stack->top_a->value < pivot)
-			pb(stack);
+			pb(stack, 1);
 		else
-			ra(stack);
+			ra(stack, 1);
 	}
 	three_elements(stack);
 	if (stack->size_b > 1)
 	{
 		if (stack->top_b->value < stack->top_b->next->value)
-			sb(stack);
+			sb(stack, 1);
 	}
 	while (stack->size_b > 0)
-		pa(stack);
+		pa(stack, 1);
 }
 
 void	sorting(t_stack *stack)
 {
 	chage_value_to_index(stack);
 	if (stack->size_a == 2)
-		sa(stack);
+		sa(stack, 1);
 	else if (stack->size_a == 3)
 		three_elements(stack);
 	else if (stack->size_a == 4 || stack->size_a == 5)

@@ -6,7 +6,7 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 14:10:53 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/12 15:01:32 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:46:27 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ void	push_all_a_to_b(t_stack *stack)
 	while (1)
 	{
 		if (pivot_large < stack->top_a->value)
-			ra(stack);
+			ra(stack, 1);
 		else if (pivot_small < stack->top_a->value)
-			pb(stack);
+			pb(stack, 1);
 		else
 		{
-			pb(stack);
-			rb(stack);
+			pb(stack, 1);
+			rb(stack, 1);
 		}
 		if (stack->top_a->value == first_value)
 			break ;
 	}
 	while (stack->size_a > 3)
-		pb(stack);
+		pb(stack, 1);
 	three_elements(stack);
 }
 
@@ -55,12 +55,12 @@ void	make_a_top_zero(t_stack *stack)
 	if (index_zero < stack->size_a / 2)
 	{
 		while (stack->top_a->value != 0)
-			ra(stack);
+			ra(stack, 1);
 	}
 	else
 	{
 		while (stack->top_a->value != 0)
-			rra(stack);
+			rra(stack, 1);
 	}
 }
 

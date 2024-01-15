@@ -1,16 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   push_swap_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 16:22:55 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/09 16:01:18 by seohyeki         ###   ########.fr       */
+/*   Created: 2024/01/15 18:51:19 by seohyeki          #+#    #+#             */
+/*   Updated: 2024/01/15 19:02:32 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
+
+long long	ft_atoi(const char *str)
+{
+	long long	num;
+	int			sign;
+
+	num = 0;
+	sign = 1;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	if (*str < '0' || '9' < *str)
+		return (2147483648);
+	while (*str)
+	{
+		if (*str < '0' || '9' < *str)
+			return (2147483648);
+		num = num * 10 + *str - '0';
+		str++;
+	}
+	num = num * sign;
+	if ((num > 2147483647 || num < -2147483648))
+		return (2147483648);
+	else
+		return (num);
+}
 
 static int	ft_count_word(char const *str, char sep)
 {

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 16:13:22 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/09 16:01:10 by seohyeki         ###   ########.fr       */
+/*   Created: 2024/01/15 17:29:04 by seohyeki          #+#    #+#             */
+/*   Updated: 2024/01/15 19:01:11 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
-t_list	*ft_lstlast(t_list *lst)
+int	ft_strncmp(const char *s1, const char *s2, int n)
 {
-	if (lst)
-	{
-		while (lst->next != NULL)
-			lst = lst->next;
-	}
-	return (lst);
+	int				i;
+	unsigned char	*str1;
+	unsigned char	*str2;
+
+	i = 0;
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	while ((str1[i] == str2[i]) && (str1[i] != '\0') && (i + 1 < n))
+		i++;
+	return (str1[i] - str2[i]);
 }

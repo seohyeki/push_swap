@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 17:47:55 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/09 16:01:00 by seohyeki         ###   ########.fr       */
+/*   Created: 2024/01/15 17:29:51 by seohyeki          #+#    #+#             */
+/*   Updated: 2024/01/15 17:34:41 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static t_list	*ft_lstnew(int value)
 {
@@ -40,4 +40,37 @@ void	ft_lstadd_back(t_list **lst, int value)
 		last = ft_lstlast(*lst);
 		last->next = newnode;
 	}
+}
+
+t_list	*ft_lstlast_prev(t_list *lst)
+{
+	if (lst)
+	{
+		while (lst->next->next != NULL)
+			lst = lst->next;
+	}
+	return (lst);
+}
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (lst)
+	{
+		while (lst->next != NULL)
+			lst = lst->next;
+	}
+	return (lst);
+}
+
+int	ft_lstsize(t_list *lst)
+{
+	int		count;
+
+	count = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		count++;
+	}
+	return (count);
 }

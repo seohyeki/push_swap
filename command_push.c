@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   command_push.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 15:52:58 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/12 15:10:59 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/15 18:29:13 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	pa(t_stack *stack)
+void	pa(t_stack *stack, int flag)
 {
 	t_list	*tmp;
 
@@ -35,11 +35,12 @@ void	pa(t_stack *stack)
 		}
 		(stack->size_b)--;
 		(stack->size_a)++;
-		write(1, "pa\n", 3);
+		if (flag == 1)
+			write(1, "pa\n", 3);
 	}
 }
 
-void	pb(t_stack *stack)
+void	pb(t_stack *stack, int flag)
 {
 	t_list	*tmp;
 
@@ -62,6 +63,7 @@ void	pb(t_stack *stack)
 		}
 		(stack->size_a)--;
 		(stack->size_b)++;
-		write(1, "pb\n", 3);
+		if (flag == 1)
+			write(1, "pb\n", 3);
 	}
 }

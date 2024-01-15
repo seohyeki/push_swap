@@ -1,16 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_all.c                                      :+:      :+:    :+:   */
+/*   push_swap_utils3.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 19:35:25 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/09 16:00:49 by seohyeki         ###   ########.fr       */
+/*   Created: 2024/01/15 17:35:43 by seohyeki          #+#    #+#             */
+/*   Updated: 2024/01/15 19:04:27 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
+
+int	ft_sort_check(t_list *stack)
+{
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
+int	ft_dup_check(t_list *stack, int value)
+{
+	while (stack)
+	{
+		if (stack->value == value)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
+void	ft_error(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
 void	ft_free_arr(char **arr)
 {
