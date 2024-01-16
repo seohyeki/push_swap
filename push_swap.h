@@ -6,7 +6,7 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 15:04:24 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/15 18:42:54 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/16 12:20:07 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct s_stack
 	struct s_list	*bottom_b;
 }	t_stack;
 
-/*command*/
 void		sa(t_stack *stack, int flag);
 void		sb(t_stack *stack, int flag);
 void		ss(t_stack *stack, int flag);
@@ -46,8 +45,6 @@ void		rr(t_stack *stack, int flag);
 void		rra(t_stack *stack, int flag);
 void		rrb(t_stack *stack, int flag);
 void		rrr(t_stack *stack, int flag);
-
-/*utils*/
 t_list		*ft_lstlast_prev(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);
 void		ft_lstadd_back(t_list **lst, int value);
@@ -61,11 +58,8 @@ int			ft_strlen(const char *s);
 long long	ft_atoi(const char *str);
 char		**ft_split(char const *s, char c);
 int			ft_strncmp(const char *s1, const char *s2, int n);
-
 void		fill_stack(char **argv, t_stack *stack);
 void		init_stack(t_stack *stack, char **argv);
-
-/*sort*/
 void		quick_sort(int *arr, int start, int end);
 void		three_elements(t_stack *stack);
 void		five_elements(t_stack *stack);

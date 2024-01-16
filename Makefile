@@ -6,7 +6,7 @@
 #    By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 15:04:26 by seohyeki          #+#    #+#              #
-#    Updated: 2024/01/15 19:03:43 by seohyeki         ###   ########.fr        #
+#    Updated: 2024/01/16 12:02:17 by seohyeki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,10 @@ SRCS 	 =	command_swap.c \
 			command_push.c \
 			command_reverse.c \
 			command_rotate.c \
-			push_swap_utils1.c \
-			push_swap_utils2.c \
-			push_swap_utils3.c \
+			push_swap_ft_atoi.c \
+			push_swap_ft_split.c \
+			push_swap_ft_lst.c \
+			push_swap_utils.c \
 			stack_init.c
 SRCS_MAN =	push_swap.c \
 			quick_sort.c \
