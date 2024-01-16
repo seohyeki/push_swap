@@ -6,7 +6,7 @@
 #    By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 15:04:26 by seohyeki          #+#    #+#              #
-#    Updated: 2024/01/16 12:02:17 by seohyeki         ###   ########.fr        #
+#    Updated: 2024/01/16 16:53:07 by seohyeki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,12 +36,12 @@ OBJS	 =	$(SRCS:.c=.o)
 OBJS_MAN =	$(SRCS_MAN:.c=.o)
 OBJS_BON =	$(SRCS_BON:.c=.o)
 
+$(NAME) : $(OBJS) $(OBJS_MAN)
+	cc $(CFLAGS) -o $@ $^
+
 all : $(NAME) $(BONUS)
 
 bonus : $(BONUS)
-
-$(NAME) : $(OBJS) $(OBJS_MAN)
-	cc $(CFLAGS) -o $@ $^
 
 $(BONUS) : $(OBJS) $(OBJS_BON)
 	cc $(CFLAGS) -o $@ $^
