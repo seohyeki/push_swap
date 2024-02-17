@@ -6,7 +6,7 @@
 #    By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 15:04:26 by seohyeki          #+#    #+#              #
-#    Updated: 2024/01/16 16:53:07 by seohyeki         ###   ########.fr        #
+#    Updated: 2024/02/17 16:11:39 by seohyeki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,8 @@ SRCS_MAN =	push_swap.c \
 			greedy.c
 SRCS_BON =	get_next_line.c \
 			get_next_line_utils.c \
-			checker_utils.c \
-			checker.c
+			checker_utils_bonus.c \
+			checker_bonus.c
 OBJS	 =	$(SRCS:.c=.o)
 OBJS_MAN =	$(SRCS_MAN:.c=.o)
 OBJS_BON =	$(SRCS_BON:.c=.o)

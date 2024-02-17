@@ -6,7 +6,7 @@
 /*   By: seohyeki <seohyeki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:55:48 by seohyeki          #+#    #+#             */
-/*   Updated: 2024/01/15 18:43:24 by seohyeki         ###   ########.fr       */
+/*   Updated: 2024/01/22 20:09:54 by seohyeki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 			free(command);
 			command = get_next_line(0);
 		}
-		if (ft_sort_check(stack.top_a) && stack.top_b == NULL)
+		if (stack.size_b == 0 && ft_sort_check(stack.top_a))
 			write(1, "OK\n", 3);
 		else
 			write(1, "KO\n", 3);
